@@ -5,5 +5,4 @@ cardView: true
 cascade:
   showDate: false
   showAuthor: false
-  hotlinkFeatureImage: true
 ---
