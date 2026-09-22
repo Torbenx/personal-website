@@ -16,6 +16,8 @@ buildFuture = false
 
 enableEmoji = true
 
+disableKinds = ["taxonomy", "term"]
+
 # googleAnalytics = "G-XXXXXXXXX"
 
 [pagination]
@@ -24,11 +26,11 @@ enableEmoji = true
 [imaging]
   anchor = 'Center'
 
-[taxonomies]
-  tag = "tags"
-  category = "categories"
-  author = "authors"
-  series = "series"
+# [taxonomies]
+#   tag = "tags"
+#   category = "categories"
+#   author = "authors"
+#   series = "series"
 
 [sitemap]
   changefreq = 'daily'

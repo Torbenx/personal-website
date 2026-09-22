@@ -1,3 +1,4 @@
 ---
 title: "Talks"
+excludeFromSearch: true
 ---
