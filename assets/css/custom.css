@@ -1,0 +1,30 @@
+/* Helper to format links */
+.proper-links a {
+  color: rgb(var(--color-primary-600));
+}
+.proper-links a:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+html.dark .proper-links a {
+  color: rgb(var(--color-primary-400));
+}
+
+/* Center articles without TOC */
+article:has(> #single_header) > header,
+article:has(> #single_header) > footer,
+article:has(> #single_header) > section > div,
+article:has(> #single_header) .article-content {
+  max-width: none;
+}
+
+/* Set thumbnail aspect ratio on project cards */
+.section-projects-card .thumbnail_card {
+  --thumbnail-aspect-ratio: 2 !important;
+}
+
+/* Size the header monogram */
+.logo svg {
+  height: 1rem;
+  width: auto
+}

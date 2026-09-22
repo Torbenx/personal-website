@@ -1,0 +1,6 @@
+<h2 class="mt-8 text-2xl font-extrabold mb-2"><a class="hover:underline hover:underline-offset-2" href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+<section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+  {{ range .RegularPages }}
+    {{ partial "article-link/card.html" . }}
+  {{ end }}
+</section>

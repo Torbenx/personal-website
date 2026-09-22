@@ -1,0 +1,10 @@
+<span class="section-{{ .Section }}-card">
+
+{{ $overwrite := printf "article-link/card-%s.html" .Section }}
+{{ if templates.Exists (printf "partials/%s" $overwrite) }}
+{{ partial $overwrite . }}
+{{ else }}
+{{ partial "blowfish/article-link/card.html" . }}
+{{ end }}
+
+</span>

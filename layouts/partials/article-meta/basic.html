@@ -1,0 +1,15 @@
+{{/* Determine the correct context and scope */}}
+{{/* This allows for different logic depending on where the partial is called */}}
+{{ $context := . }}
+{{ $scope := default nil }}
+{{ if (reflect.IsMap . ) }}
+  {{ $context = .context }}
+  {{ $scope = cond (not .scope) nil .scope }}
+{{ end }}
+
+{{ $overwrite := printf "article-meta/basic-%s.html" $context.Section }}
+{{ if templates.Exists (printf "partials/%s" $overwrite) }}
+{{ partial $overwrite . }}
+{{ else }}
+{{ partial "blowfish/article-meta/basic.html" . }}
+{{ end }}

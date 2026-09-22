@@ -1,0 +1,25 @@
+{{ define "main" }}
+  {{ if .Site.Params.homepage.layoutSwitcher | default false }}
+    {{ partial "home/layout-switcher.html" . }}
+  {{ else }}
+    {{ $partial := print "home/" .Site.Params.homepage.layout ".html" }}
+    {{ if templates.Exists ( printf "partials/%s" $partial ) }}
+      {{ partial $partial . }}
+    {{ else }}
+      {{ partial "home/profile.html" . }}
+    {{ end }}
+  {{ end }}
+
+  {{/* partial "main-section.html" (.Site.GetPage "/talks") */}}
+  {{/* partial "main-section.html" (.Site.GetPage "/projects") */}}
+  <h2 class="mt-8 text-2xl font-extrabold mb-2">
+    <a class="hover:underline hover:underline-offset-2" href="{{ (.Site.GetPage "/talks").RelPermalink }}">Talks</a>
+    and
+    <a class="hover:underline hover:underline-offset-2" href="{{ (.Site.GetPage "/projects").RelPermalink }}">Projects</a>
+  </h2>
+  <section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+    {{ range .Site.RegularPages }}
+      {{ partial "article-link/card.html" . }}
+    {{ end }}
+  </section>
+{{ end }}

@@ -1,0 +1,18 @@
+# Re-declare the defaults — adding any mount drops the built-in ones
+[[module.mounts]]
+  source = "layouts"
+  target = "layouts"
+[[module.mounts]]
+  source = "content"
+  target = "content"
+[[module.mounts]]
+  source = "assets"
+  target = "assets"
+[[module.mounts]]
+  source = "static"
+  target = "static"
+
+# Note: This is not compatible with consuming the theme as a module.
+[[module.mounts]]
+  source = "themes/blowfish/layouts/partials"
+  target = "layouts/partials/blowfish"
