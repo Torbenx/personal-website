@@ -5,6 +5,7 @@ paperType: "Master Thesis"
 doi: https://doi.org/10.5281/zenodo.22905734
 doiImage: https://zenodo.org/badge/DOI/10.5281/zenodo.22905734.svg
 fulltext: "https://zenodo.org/records/22905734/files/masterthesis.pdf"
+images: ["social.png"]
 ---
 
 ## Abstract

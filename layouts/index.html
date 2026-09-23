@@ -21,10 +21,16 @@
   </h2>
   <!-- Based on themes/blowfish/layouts/partials/recent-articles/cardview.html -->
   <section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-    {{ range ($talks.RegularPages | union $projects.RegularPages) }}
+    {{ range (union $talks.RegularPages $projects.RegularPages) }}
       {{ partial "article-link/card.html" . }}
     {{ end }}
   </section>
+
+  {{ $posts := .Site.GetPage "/posts" }}
+  <h2 class="mt-8 text-2xl font-extrabold mb-2">
+    <a class="hover:underline hover:underline-offset-2" href="{{ $posts.RelPermalink }}">Blog Posts</a>
+  </h2>
+  Coming Soon
 
   {{ partial "main-section.html" (.Site.GetPage "/academic") }}
 {{ end }}
