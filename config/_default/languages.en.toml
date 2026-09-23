@@ -24,4 +24,5 @@ title = "Torben Thaysen's Personal Website"
   links = [
     { email = "mailto:thaysentorben@gmail.com" },
     { github = "https://github.com/Torbenx" },
+    { orcid = "https://orcid.org/0009-0008-3465-3698" },
   ]

@@ -1,0 +1,27 @@
+{{/* Determine the correct context and scope */}}
+{{/* This allows for different logic depending on where the partial is called */}}
+{{ $context := . }}
+{{ $scope := default nil }}
+{{ if (reflect.IsMap . ) }}
+  {{ $context = .context }}
+  {{ $scope = cond (not .scope) nil .scope }}
+{{ end }}
+
+<span class="proper-links relative z-10">
+
+{{ with $context.Params }}
+
+{{ .paperType }}
+<span class="px-2 text-primary-500">&middot;</span>
+{{ partial "meta/date.html" .date }}
+
+{{ if eq $scope "single" }}
+<span class="px-2 text-primary-500">&middot;</span>
+<a href="{{ .doi }}"><img class="nozoom inline" src="{{ .doiImage }}" alt="DOI"></a>
+<span class="px-2 text-primary-500">&middot;</span>
+<a href="{{ .fulltext }}">Full Text</a>
+{{ end }}
+
+{{end}}
+
+</span>

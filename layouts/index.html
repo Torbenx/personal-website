@@ -12,14 +12,19 @@
 
   {{/* partial "main-section.html" (.Site.GetPage "/talks") */}}
   {{/* partial "main-section.html" (.Site.GetPage "/projects") */}}
+  {{ $talks := .Site.GetPage "/talks" }}
+  {{ $projects := .Site.GetPage "/projects" }}
   <h2 class="mt-8 text-2xl font-extrabold mb-2">
-    <a class="hover:underline hover:underline-offset-2" href="{{ (.Site.GetPage "/talks").RelPermalink }}">Talks</a>
+    <a class="hover:underline hover:underline-offset-2" href="{{ $talks.RelPermalink }}">Talks</a>
     and
-    <a class="hover:underline hover:underline-offset-2" href="{{ (.Site.GetPage "/projects").RelPermalink }}">Projects</a>
+    <a class="hover:underline hover:underline-offset-2" href="{{ $projects.RelPermalink }}">Projects</a>
   </h2>
+  <!-- Based on themes/blowfish/layouts/partials/recent-articles/cardview.html -->
   <section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-    {{ range .Site.RegularPages }}
+    {{ range ($talks.RegularPages | union $projects.RegularPages) }}
       {{ partial "article-link/card.html" . }}
     {{ end }}
   </section>
+
+  {{ partial "main-section.html" (.Site.GetPage "/academic") }}
 {{ end }}
